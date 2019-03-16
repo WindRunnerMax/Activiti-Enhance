@@ -27,7 +27,7 @@
     </script>
 </head>
 <body>
-<div class='page-title ui-corner-all'>作业管理列表</div>
+  <br>
 <table width="100%" class="table table-bordered table-hover table-condensed">
     <thead>
     <tr>

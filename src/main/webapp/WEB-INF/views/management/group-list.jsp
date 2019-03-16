@@ -25,7 +25,9 @@
 <body>
 <ul class="nav nav-pills">
     <li><a href="${ctx}/management/identity/user/list"><i class="icon-user"></i>用户管理</a></li>
-    <li class="active"><a href="${ctx}/management/identity/group/list"><i class="icon-list"></i>组管理</a></li>
+    <li  class="active"><a href="${ctx}/management/identity/group/list"><i class="icon-list"></i>组管理</a></li>
+	<li><a href="${ctx}/pressanykeytoac/tree/jump/user"><i class="layui-icon" style="color: #000;">&#xe62e;</i>用户树管理</a></li>
+    <li><a href="${ctx}/pressanykeytoac/tree/jump/group"><i class="layui-icon" style="color: #000;">&#xe613;</i>组角色管理</a></li>
 </ul>
 <hr>
 <c:if test="${not empty message}">
@@ -47,7 +49,7 @@
     </script>
 </c:if>
 <div class="row">
-    <div class="span8">
+    <div class="span6">
         <fieldset>
             <legend><small>组列表</small></legend>
             <table width="100%" class="table table-bordered table-hover table-condensed">
@@ -65,9 +67,9 @@
                         <td class="prop-id">${group.id}</td>
                         <td class="prop-name">${group.name}</td>
                         <td class="prop-type">${group.type}</td>
-                        <td>
-                            <a class="btn btn-danger btn-small" href="${ctx}/management/identity/group/delete/${group.id}"><i class="icon-remove"></i>删除</a>
-                            <a class="btn btn-info btn-small edit-group" data-id="${group.id}" href="#"><i class="icon-pencil"></i>编辑</a>
+                        <td style="width: 136px;">
+                            <a  style="float: left;" class="layui-btn layui-btn-normal layui-btn-sm edit-group" data-id="${group.id}" ><i class="layui-icon">&#xe642;</i></i>编辑</a>
+                             <a style="float: right;" class="layui-btn layui-btn-danger layui-btn-sm" href="${ctx}/management/identity/group/delete/${group.id}"><i class="layui-icon">&#xe640;</i>删除</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -76,7 +78,7 @@
             <tags:pagination page="${page}" paginationSize="${page.pageSize}"/>
         </fieldset>
     </div>
-    <div class="span4">
+    <div class="span6">
         <form action="${ctx }/management/identity/group/save" class="form-horizontal" method="post">
             <input type="hidden" name="id"/>
             <fieldset>
@@ -104,8 +106,8 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <button type="reset" class="btn"><i class="icon-remove"></i>重置</button>
-                    <button type="submit" class="btn btn-primary"><i class="icon-ok-sign"></i>保存</button>
+                    <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon">&#xe605;</i>保存</button>
+                    <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">&#xe9aa;</i>重置</button>
                 </div>
             </fieldset>
         </form>

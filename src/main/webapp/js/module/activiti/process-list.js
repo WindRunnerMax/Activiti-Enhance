@@ -4,5 +4,5 @@
  * @author HenryYan
  */
 $(function() {
-	$('#redeploy').button().click(redeploy);
-});
+			$('#redeploy').button().click(redeploy);
+		});

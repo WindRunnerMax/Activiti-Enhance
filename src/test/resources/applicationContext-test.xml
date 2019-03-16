@@ -57,10 +57,12 @@
 		
 		<!-- 自定义表单字段类型 -->
 		<property name="customFormTypes">
-			<list>
-				<bean class="me.kafeitu.demo.activiti.activiti.form.UsersFormType" />
-			</list>
-		</property>
+        <list>
+            <bean class="me.kafeitu.demo.activiti.activiti.form.UsersFormType"/>
+            <bean class="com.pressanykeytoac.form.voucherForm"/>
+             <bean class="com.pressanykeytoac.form.fileForm"/>
+        </list>
+    	</property>
 	</bean>
 
 	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">

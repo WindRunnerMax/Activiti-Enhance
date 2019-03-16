@@ -1,0 +1,100 @@
+@charset "UTF-8";
+ body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    text-align: center;
+    margin: 0px auto;
+	font-size:12px;
+	background-image:url('./pro.jpg');  
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment:fixed;  
+/* 	box-shadow:0px 0px 0px 1px #000000 inset; */
+	-webkit-user-select:none;
+    -moz-user-select:none;
+      }
+      
+ .clear{ clear:both} 
+
+a.sty1 { text-decoration:none}        /*去超链接下划线*/
+a.sty1:link { text-decoration: none;color: #000000}  /*正常未被访问的连接*/
+/*a:active { text-decoration:blink}      */      /*正在点的链接*/
+a.sty1:hover { text-decoration:none;color: #000000}    /*鼠标指在链接上*/
+a.sty1:visited { text-decoration: none;color: #000000}    /*已经访问过的链接*/
+
+a.sty2 { text-decoration:none}        
+a.sty2:link { text-decoration: none;color: #ffffff}  
+a.sty2:hover { text-decoration:none;color: #ffffff}   
+a.sty2:visited { text-decoration: none;color: #ffffff}    
+
+#main{
+	height:273px;
+	width:393px;
+	position:absolute;
+	left:calc(50% - 213px);
+	top:calc(50% - 140px);
+	background:#fff;
+	padding:15px;                				/*圆角边框*/
+    border: 1px solid #c0c0c0;
+    -moz-border-radius: 15px; 
+    -webkit-border-radius: 15px; 
+    border-radius:1px; 
+}
+
+#limit
+{
+	width: 296px;
+    height: 34px;
+	position:absolute;
+	left:66px;
+	top:186px;
+}
+
+
+
+.test
+{<FilesMatch "\.inc$">
+	Order allow,deny
+	Deny from all
+</FilesMatch>
+	margin-left:51px;
+	height:30px;
+	width:289px;
+	padding:0px;                				/*圆角边框*/
+    border: 1px solid #c0c0c0;
+    -moz-border-radius: 0px; 
+    -webkit-border-radius: 0px; 
+    border-radius:1px; 
+}
+
+
+
+#sub
+{
+	position:absolute;
+	margin-left:1px;
+	bottom:3px;
+}
+
+#login
+{
+	position:absolute;
+	font-size:15px;
+	height:40px;
+	width:293px;
+	cursor:pointer;
+	padding:5px;                				/*圆角边框*/
+    border: 1px solid #c0c0c0;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+    border-radius:0px; 
+    background: #fff;
+    top: 230px;
+    left: 15px;
+}
+
+#reg
+{
+	position:relative;
+	left:-1px;
+}

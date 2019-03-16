@@ -1,22 +1,26 @@
 /**
  * @author nicolas.peters
  * 
- * Contains all strings for German language.
- * Version 1 - 08/29/08
+ * Contains all strings for German language. Version 1 - 08/29/08
  */
-if(!ORYX) var ORYX = {};
+if (!ORYX)
+	var ORYX = {};
 
-if(!ORYX.I18N) ORYX.I18N = {};
+if (!ORYX.I18N)
+	ORYX.I18N = {};
 
-ORYX.I18N.Language = "de_DE"; //Pattern <ISO language code>_<ISO country code> in lower case!
+ORYX.I18N.Language = "de_DE"; // Pattern <ISO language code>_<ISO country
+								// code> in lower case!
 
-if(!ORYX.I18N.Oryx) ORYX.I18N.Oryx = {};
+if (!ORYX.I18N.Oryx)
+	ORYX.I18N.Oryx = {};
 
 ORYX.I18N.Oryx.pleaseWait = "Editor wird geladen. Bitte warten...";
 ORYX.I18N.Oryx.notLoggedOn = "Nicht angemeldet";
-ORYX.I18N.Oryx.noBackendDefined	= "Achtung! \n Es wurde kein Repository definiert.\n Ihr Model kann nicht geladen werden. Bitte nutzen sie eine Editor Konfiguration mit einem Speicher Plugin.";
+ORYX.I18N.Oryx.noBackendDefined = "Achtung! \n Es wurde kein Repository definiert.\n Ihr Model kann nicht geladen werden. Bitte nutzen sie eine Editor Konfiguration mit einem Speicher Plugin.";
 
-if(!ORYX.I18N.AddDocker) ORYX.I18N.AddDocker = {};
+if (!ORYX.I18N.AddDocker)
+	ORYX.I18N.AddDocker = {};
 
 ORYX.I18N.AddDocker.group = "Docker";
 ORYX.I18N.AddDocker.add = "Docker Hinzufügen";
@@ -24,7 +28,8 @@ ORYX.I18N.AddDocker.addDesc = "Fügen Sie einer Kante einen Docker hinzu, indem 
 ORYX.I18N.AddDocker.del = "Docker Löschen";
 ORYX.I18N.AddDocker.delDesc = "Löscht einen Docker durch Klicken auf den zu löschenden Docker";
 
-if(!ORYX.I18N.Arrangement) ORYX.I18N.Arrangement = {};
+if (!ORYX.I18N.Arrangement)
+	ORYX.I18N.Arrangement = {};
 
 ORYX.I18N.Arrangement.groupZ = "Z-Order";
 ORYX.I18N.Arrangement.btf = "In den Vordergrund";
@@ -51,7 +56,8 @@ ORYX.I18N.Arrangement.arDesc = "Rechts ausrichten";
 ORYX.I18N.Arrangement.as = "Größenangleichung";
 ORYX.I18N.Arrangement.asDesc = "Größenangleichung";
 
-if(!ORYX.I18N.Edit) ORYX.I18N.Edit = {};
+if (!ORYX.I18N.Edit)
+	ORYX.I18N.Edit = {};
 
 ORYX.I18N.Edit.group = "Edit";
 ORYX.I18N.Edit.cut = "Ausschneiden";
@@ -63,7 +69,8 @@ ORYX.I18N.Edit.pasteDesc = "Einfügen von kopierten/ausgeschnittenen Elementen";
 ORYX.I18N.Edit.del = "Löschen";
 ORYX.I18N.Edit.delDesc = "Löschen der selektierten Elemente";
 
-if(!ORYX.I18N.EPCSupport) ORYX.I18N.EPCSupport = {};
+if (!ORYX.I18N.EPCSupport)
+	ORYX.I18N.EPCSupport = {};
 
 ORYX.I18N.EPCSupport.group = "EPC";
 ORYX.I18N.EPCSupport.exp = "EPML Export";
@@ -79,7 +86,8 @@ ORYX.I18N.EPCSupport.close = "Schließen";
 ORYX.I18N.EPCSupport.error = "Fehler";
 ORYX.I18N.EPCSupport.progressImp = "Importiere...";
 
-if(!ORYX.I18N.ERDFSupport) ORYX.I18N.ERDFSupport = {};
+if (!ORYX.I18N.ERDFSupport)
+	ORYX.I18N.ERDFSupport = {};
 
 ORYX.I18N.ERDFSupport.exp = "ERDF Export";
 ORYX.I18N.ERDFSupport.expDesc = "Exportieren nach ERDF";
@@ -100,7 +108,8 @@ ORYX.I18N.ERDFSupport.close = "Schließen";
 ORYX.I18N.ERDFSupport.deprTitle = "Wirklich nach eRDF exportieren?";
 ORYX.I18N.ERDFSupport.deprText = "Der Export nach eRDF wird nicht empfohlen, da dieses Format in zukünftigen Versionen des Oryx Editors nicht mehr unterstützt wird. Verwenden Sie statt dessen den Export nach JSON, falls möglich. Wollen Sie dennoch das Model nach eRDF exportieren?";
 
-if(!ORYX.I18N.jPDLSupport) ORYX.I18N.jPDLSupport = {};
+if (!ORYX.I18N.jPDLSupport)
+	ORYX.I18N.jPDLSupport = {};
 
 ORYX.I18N.jPDLSupport.group = "ExecBPMN";
 ORYX.I18N.jPDLSupport.exp = "jPDL Export";
@@ -110,7 +119,7 @@ ORYX.I18N.jPDLSupport.impDesc = "jPDL Datei importieren";
 ORYX.I18N.jPDLSupport.impFailedReq = "Anfrage für den Import der jPDL Datei ist fehlgeschlagen.";
 ORYX.I18N.jPDLSupport.impFailedJson = "Transformation der jPDL Datei ist fehlgeschlagen.";
 ORYX.I18N.jPDLSupport.impFailedJsonAbort = "Import abgebrochen.";
-ORYX.I18N.jPDLSupport.loadSseQuestionTitle = "Stencil Set Erweiterung für jBPM muss geladen werden"; 
+ORYX.I18N.jPDLSupport.loadSseQuestionTitle = "Stencil Set Erweiterung für jBPM muss geladen werden";
 ORYX.I18N.jPDLSupport.loadSseQuestionBody = "Um jPDL importieren zu können, muss die Stencil Set Erweiterung für jBPM geladen werden. Möchten Sie fortfahren?";
 ORYX.I18N.jPDLSupport.expFailedReq = "Anfrage für den Export des Models ist fehlgeschlagen.";
 ORYX.I18N.jPDLSupport.expFailedXml = "Export nach jPDL ist fehlgeschlagen. Exporter meldet: ";
@@ -122,7 +131,8 @@ ORYX.I18N.jPDLSupport.impBtn = "Importieren";
 ORYX.I18N.jPDLSupport.impProgress = "Importiere...";
 ORYX.I18N.jPDLSupport.close = "Schließen";
 
-if(!ORYX.I18N.Save) ORYX.I18N.Save = {};
+if (!ORYX.I18N.Save)
+	ORYX.I18N.Save = {};
 
 ORYX.I18N.Save.group = "File";
 ORYX.I18N.Save.save = "Speichern";
@@ -141,7 +151,8 @@ ORYX.I18N.Save.noRights = "Sie haben nicht die erforderlichen Rechte, um Änderu
 ORYX.I18N.Save.saving = "Speichern";
 ORYX.I18N.Save.saveAsHint = "Das Diagramm wurde unter folgendem Link gespeichert:";
 
-if(!ORYX.I18N.File) ORYX.I18N.File = {};
+if (!ORYX.I18N.File)
+	ORYX.I18N.File = {};
 
 ORYX.I18N.File.group = "File";
 ORYX.I18N.File.print = "Drucken";
@@ -155,7 +166,8 @@ ORYX.I18N.File.genPDFFailed = "Die Generierung der PDF Datei ist fehlgeschlagen.
 ORYX.I18N.File.printTitle = "Drucken";
 ORYX.I18N.File.printMsg = "Leider arbeitet die Druckfunktion zur Zeit nicht immer korrekt. Bitte nutzen Sie den PDF Export, und drucken Sie das PDF Dokument aus. Möchten Sie dennoch mit dem Drucken fortfahren?";
 
-if(!ORYX.I18N.Grouping) ORYX.I18N.Grouping = {};
+if (!ORYX.I18N.Grouping)
+	ORYX.I18N.Grouping = {};
 
 ORYX.I18N.Grouping.grouping = "Grouping";
 ORYX.I18N.Grouping.group = "Gruppieren";
@@ -163,11 +175,13 @@ ORYX.I18N.Grouping.groupDesc = "Gruppierung der selektierten Elemente";
 ORYX.I18N.Grouping.ungroup = "Gruppierung aufheben";
 ORYX.I18N.Grouping.ungroupDesc = "Aufheben aller Gruppierungen der selektierten Elemente";
 
-if(!ORYX.I18N.Loading) ORYX.I18N.Loading = {};
+if (!ORYX.I18N.Loading)
+	ORYX.I18N.Loading = {};
 
-ORYX.I18N.Loading.waiting ="Bitte warten...";
+ORYX.I18N.Loading.waiting = "Bitte warten...";
 
-if(!ORYX.I18N.PropertyWindow) ORYX.I18N.PropertyWindow = {};
+if (!ORYX.I18N.PropertyWindow)
+	ORYX.I18N.PropertyWindow = {};
 
 ORYX.I18N.PropertyWindow.name = "Name";
 ORYX.I18N.PropertyWindow.value = "Wert";
@@ -181,13 +195,15 @@ ORYX.I18N.PropertyWindow.ok = "Ok";
 ORYX.I18N.PropertyWindow.cancel = "Abbrechen";
 ORYX.I18N.PropertyWindow.dateFormat = "d/m/y";
 
-if(!ORYX.I18N.ShapeMenuPlugin) ORYX.I18N.ShapeMenuPlugin = {};
+if (!ORYX.I18N.ShapeMenuPlugin)
+	ORYX.I18N.ShapeMenuPlugin = {};
 
 ORYX.I18N.ShapeMenuPlugin.drag = "Ziehen";
 ORYX.I18N.ShapeMenuPlugin.clickDrag = "Klicken oder ziehen";
 ORYX.I18N.ShapeMenuPlugin.morphMsg = "Shape morphen";
 
-if(!ORYX.I18N.SyntaxChecker) ORYX.I18N.SyntaxChecker = {};
+if (!ORYX.I18N.SyntaxChecker)
+	ORYX.I18N.SyntaxChecker = {};
 
 ORYX.I18N.SyntaxChecker.group = "Verification";
 ORYX.I18N.SyntaxChecker.name = "Syntax-Checker";
@@ -196,7 +212,8 @@ ORYX.I18N.SyntaxChecker.noErrors = "Es wurden keine Syntaxfehler gefunden.";
 ORYX.I18N.SyntaxChecker.invalid = "Ungültige Antwort vom Server.";
 ORYX.I18N.SyntaxChecker.checkingMessage = "Überprüfung wird durchgeführt ...";
 
-if(!ORYX.I18N.Undo) ORYX.I18N.Undo = {};
+if (!ORYX.I18N.Undo)
+	ORYX.I18N.Undo = {};
 
 ORYX.I18N.Undo.group = "Undo";
 ORYX.I18N.Undo.undo = "Rückgängig";
@@ -204,7 +221,8 @@ ORYX.I18N.Undo.undoDesc = "Rückgängig";
 ORYX.I18N.Undo.redo = "Wiederherstellen";
 ORYX.I18N.Undo.redoDesc = "Wiederherstellen";
 
-if(!ORYX.I18N.View) ORYX.I18N.View = {};
+if (!ORYX.I18N.View)
+	ORYX.I18N.View = {};
 
 ORYX.I18N.View.group = "Zoom";
 ORYX.I18N.View.zoomIn = "Vergrößern";
@@ -216,11 +234,12 @@ ORYX.I18N.View.zoomStandardDesc = "Originalgröße";
 ORYX.I18N.View.zoomFitToModel = "Modelgröße";
 ORYX.I18N.View.zoomFitToModelDesc = "Modelgröße";
 
-/** New Language Properties: 08.12.2008 **/
+/** New Language Properties: 08.12.2008 * */
 
 ORYX.I18N.PropertyWindow.title = "Eigenschaften";
 
-if(!ORYX.I18N.ShapeRepository) ORYX.I18N.ShapeRepository = {};
+if (!ORYX.I18N.ShapeRepository)
+	ORYX.I18N.ShapeRepository = {};
 ORYX.I18N.ShapeRepository.title = "Shape Verzeichnis";
 
 ORYX.I18N.Save.dialogDesciption = "Bitte geben Sie einen Namen, eine Beschreibung und einen Kommentar ein.";
@@ -229,44 +248,48 @@ ORYX.I18N.Save.dialogLabelDesc = "Beschreibung";
 ORYX.I18N.Save.dialogLabelType = "Typ";
 ORYX.I18N.Save.dialogLabelComment = "Revisionskommentar";
 
-if(!ORYX.I18N.Perspective) ORYX.I18N.Perspective = {};
+if (!ORYX.I18N.Perspective)
+	ORYX.I18N.Perspective = {};
 ORYX.I18N.Perspective.no = "Keine Perspektive"
 ORYX.I18N.Perspective.noTip = "Zurücksetzen der aktuellen Perspektive"
 
 /** New Language Properties: 21.04.2009 */
 ORYX.I18N.JSONSupport = {
-    imp: {
-        name: "JSON importieren",
-        desc: "Importiert ein neues Modell aus JSON",
-        group: "Export",
-        selectFile: "Wählen Sie eine JSON-Datei (*.json) aus, die Sie importieren möchten, oder fügen Sie JSON in das Textfeld ein.",
-        file: "Datei",
-        btnImp: "Importieren",
-        btnClose: "Schließen",
-        progress: "Importieren ...",
-        syntaxError: "Syntaxfehler"
-    },
-    exp: {
-        name: "Nach JSON exportieren",
-        desc: "Exportiert das aktuelle Modell nach JSON",
-        group: "Export"
-    }
+	imp : {
+		name : "JSON importieren",
+		desc : "Importiert ein neues Modell aus JSON",
+		group : "Export",
+		selectFile : "Wählen Sie eine JSON-Datei (*.json) aus, die Sie importieren möchten, oder fügen Sie JSON in das Textfeld ein.",
+		file : "Datei",
+		btnImp : "Importieren",
+		btnClose : "Schließen",
+		progress : "Importieren ...",
+		syntaxError : "Syntaxfehler"
+	},
+	exp : {
+		name : "Nach JSON exportieren",
+		desc : "Exportiert das aktuelle Modell nach JSON",
+		group : "Export"
+	}
 };
 
 /** New Language Properties: 09.05.2009 */
-if(!ORYX.I18N.JSONImport) ORYX.I18N.JSONImport = {};
+if (!ORYX.I18N.JSONImport)
+	ORYX.I18N.JSONImport = {};
 
 ORYX.I18N.JSONImport.title = "JSON Import";
 ORYX.I18N.JSONImport.wrongSS = "Das Stencil Set der importierten Datei ({0}) entspricht nicht dem geladenen Stencil Set ({1})."
 
 /** New Language Properties: 14.05.2009 */
-if(!ORYX.I18N.RDFExport) ORYX.I18N.RDFExport = {};
+if (!ORYX.I18N.RDFExport)
+	ORYX.I18N.RDFExport = {};
 ORYX.I18N.RDFExport.group = "Export";
 ORYX.I18N.RDFExport.rdfExport = "Nach RDF exportieren";
 ORYX.I18N.RDFExport.rdfExportDescription = "Exportiert das aktuelle Model in die XML-Serialisierung des Resource Description Frameworks (RDF)";
 
-/** New Language Properties: 15.05.2009*/
-if(!ORYX.I18N.SyntaxChecker.BPMN) ORYX.I18N.SyntaxChecker.BPMN={};
+/** New Language Properties: 15.05.2009 */
+if (!ORYX.I18N.SyntaxChecker.BPMN)
+	ORYX.I18N.SyntaxChecker.BPMN = {};
 ORYX.I18N.SyntaxChecker.BPMN_NO_SOURCE = "Eine Kante muss einen Ursprung haben.";
 ORYX.I18N.SyntaxChecker.BPMN_NO_TARGET = "Eine Kante muss ein Ziel haben.";
 ORYX.I18N.SyntaxChecker.BPMN_DIFFERENT_PROCESS = "Ursprungs- und Zielknoten müssen im gleichen Prozess sein.";
@@ -281,18 +304,21 @@ ORYX.I18N.SyntaxChecker.BPMN_ENDEVENT_WITH_OUTGOING_CONTROL_FLOW = "End-Ereignis
 ORYX.I18N.SyntaxChecker.BPMN_EVENTBASEDGATEWAY_BADCONTINUATION = "Auf Ereignis-basierte Gateways dürfen weder Gateways noch Subprozesse folgen.";
 ORYX.I18N.SyntaxChecker.BPMN_NODE_NOT_ALLOWED = "Knotentyp ist nicht erlaubt.";
 
-if(!ORYX.I18N.SyntaxChecker.IBPMN) ORYX.I18N.SyntaxChecker.IBPMN={};
+if (!ORYX.I18N.SyntaxChecker.IBPMN)
+	ORYX.I18N.SyntaxChecker.IBPMN = {};
 ORYX.I18N.SyntaxChecker.IBPMN_NO_ROLE_SET = "Für Interaktionen muss ein Sender und ein Empfänger definiert sein.";
 ORYX.I18N.SyntaxChecker.IBPMN_NO_INCOMING_SEQFLOW = "Dieser Knoten muss eingehenden Sequenzfluss besitzen.";
 ORYX.I18N.SyntaxChecker.IBPMN_NO_OUTGOING_SEQFLOW = "Dieser Knoten muss ausgehenden Sequenzfluss besitzen.";
 
-if(!ORYX.I18N.SyntaxChecker.InteractionNet) ORYX.I18N.SyntaxChecker.InteractionNet={};
+if (!ORYX.I18N.SyntaxChecker.InteractionNet)
+	ORYX.I18N.SyntaxChecker.InteractionNet = {};
 ORYX.I18N.SyntaxChecker.InteractionNet_SENDER_NOT_SET = "Sender ist nicht definiert";
 ORYX.I18N.SyntaxChecker.InteractionNet_RECEIVER_NOT_SET = "Empfänger ist nicht definiert";
 ORYX.I18N.SyntaxChecker.InteractionNet_MESSAGETYPE_NOT_SET = "Nachrichtentyp ist nicht definiert.";
 ORYX.I18N.SyntaxChecker.InteractionNet_ROLE_NOT_SET = "Rolle ist nicht definiert.";
 
-if(!ORYX.I18N.SyntaxChecker.EPC) ORYX.I18N.SyntaxChecker.EPC={};
+if (!ORYX.I18N.SyntaxChecker.EPC)
+	ORYX.I18N.SyntaxChecker.EPC = {};
 ORYX.I18N.SyntaxChecker.EPC_NO_SOURCE = "Eine Kante muss einen Ursprung haben.";
 ORYX.I18N.SyntaxChecker.EPC_NO_TARGET = "Eine Kante muss ein Ziel haben.";
 ORYX.I18N.SyntaxChecker.EPC_NOT_CONNECTED = "Dieser Knoten muss eingehende oder ausgehende Kanten besitzen.";
@@ -302,40 +328,44 @@ ORYX.I18N.SyntaxChecker.EPC_NO_CORRECT_CONNECTOR = "Knoten ist kein korrekter Ko
 ORYX.I18N.SyntaxChecker.EPC_MANY_STARTS = "Es darf nur ein Start-Ereignis geben.";
 ORYX.I18N.SyntaxChecker.EPC_FUNCTION_AFTER_OR = "Funktionen hinter einem OR-/XOR-Split sind nicht erlaubt.";
 ORYX.I18N.SyntaxChecker.EPC_PI_AFTER_OR = "Prozessschnittstellen hinter einem OR-/XOR-Split ist nicht erlaubt.";
-ORYX.I18N.SyntaxChecker.EPC_FUNCTION_AFTER_FUNCTION =  "Auf eine Funktion darf keine Funktion folgen.";
-ORYX.I18N.SyntaxChecker.EPC_EVENT_AFTER_EVENT =  "Auf ein Ereignis darf kein Ereignis folgen.";
-ORYX.I18N.SyntaxChecker.EPC_PI_AFTER_FUNCTION =  "Auf eine Funktion darf keine Prozessschnittstelle folgen.";
-ORYX.I18N.SyntaxChecker.EPC_FUNCTION_AFTER_PI =  "Auf eine Prozessschnittstelle darf keine Funktion folgen.";
+ORYX.I18N.SyntaxChecker.EPC_FUNCTION_AFTER_FUNCTION = "Auf eine Funktion darf keine Funktion folgen.";
+ORYX.I18N.SyntaxChecker.EPC_EVENT_AFTER_EVENT = "Auf ein Ereignis darf kein Ereignis folgen.";
+ORYX.I18N.SyntaxChecker.EPC_PI_AFTER_FUNCTION = "Auf eine Funktion darf keine Prozessschnittstelle folgen.";
+ORYX.I18N.SyntaxChecker.EPC_FUNCTION_AFTER_PI = "Auf eine Prozessschnittstelle darf keine Funktion folgen.";
 ORYX.I18N.SyntaxChecker.EPC_SOURCE_EQUALS_TARGET = "Eine Kante muss zwei verschiedene Knoten verbinden."
 
-if(!ORYX.I18N.SyntaxChecker.PetriNet) ORYX.I18N.SyntaxChecker.PetriNet={};
+if (!ORYX.I18N.SyntaxChecker.PetriNet)
+	ORYX.I18N.SyntaxChecker.PetriNet = {};
 ORYX.I18N.SyntaxChecker.PetriNet_NOT_BIPARTITE = "Der Graph ist nicht bepartit.";
 ORYX.I18N.SyntaxChecker.PetriNet_NO_LABEL = "Bezeichnung für einen bezeichnete Transition ist nicht gesetzt.";
 ORYX.I18N.SyntaxChecker.PetriNet_NO_ID = "Ein Knoten besitzt keine ID.";
 ORYX.I18N.SyntaxChecker.PetriNet_SAME_SOURCE_AND_TARGET = "Zwei Flussbeziehungen besitzen den gleichen Ursprung und das gleiche Ziel.";
 ORYX.I18N.SyntaxChecker.PetriNet_NODE_NOT_SET = "Ein Knoten ist nicht definiert für einen Flussbeziehung.";
 
-/** New Language Properties: 02.06.2009*/
+/** New Language Properties: 02.06.2009 */
 ORYX.I18N.Edge = "Kante";
 ORYX.I18N.Node = "Knoten";
 
-/** New Language Properties: 02.06.2009*/
+/** New Language Properties: 02.06.2009 */
 ORYX.I18N.SyntaxChecker.notice = "Bitte bewegen Sie den Mauszeiger über ein rotes Kreuz, um die Details zu erfahren.";
 
-/** New Language Properties: 15.07.2009*/
-if(!ORYX.I18N.Layouting) ORYX.I18N.Layouting ={};
+/** New Language Properties: 15.07.2009 */
+if (!ORYX.I18N.Layouting)
+	ORYX.I18N.Layouting = {};
 ORYX.I18N.Layouting.doing = "Layouten...";
 
-/** New Language Properties: 18.08.2009*/
+/** New Language Properties: 18.08.2009 */
 ORYX.I18N.SyntaxChecker.MULT_ERRORS = "Mehrere Fehler";
 
-/** New Language Properties: 08.09.2009*/
-if(!ORYX.I18N.PropertyWindow) ORYX.I18N.PropertyWindow = {};
+/** New Language Properties: 08.09.2009 */
+if (!ORYX.I18N.PropertyWindow)
+	ORYX.I18N.PropertyWindow = {};
 ORYX.I18N.PropertyWindow.oftenUsed = "Hauptattribute";
 ORYX.I18N.PropertyWindow.moreProps = "Mehr Attribute";
 
 /** New Language Properties 01.10.2009 */
-if(!ORYX.I18N.SyntaxChecker.BPMN2) ORYX.I18N.SyntaxChecker.BPMN2 = {};
+if (!ORYX.I18N.SyntaxChecker.BPMN2)
+	ORYX.I18N.SyntaxChecker.BPMN2 = {};
 
 ORYX.I18N.SyntaxChecker.BPMN2_DATA_INPUT_WITH_INCOMING_DATA_ASSOCIATION = "Ein Dateninput darf keine ausgehenden Datenassoziationen haben.";
 ORYX.I18N.SyntaxChecker.BPMN2_DATA_OUTPUT_WITH_OUTGOING_DATA_ASSOCIATION = "Ein Datenoutput darf keine eingehenden Datenassoziationen haben.";
@@ -360,13 +390,14 @@ ORYX.I18N.SyntaxChecker.BPMN2_EVENT_SUBPROCESS_BAD_CONNECTION = "Ein Ereignis-Un
 ORYX.I18N.SyntaxChecker.BPMN_MESSAGE_FLOW_NOT_CONNECTED = "Mindestens ein Ende des Nachrichtenflusses muss mit einem anderen Objekt verbunden sein.";
 
 /** New Language Properties 05.11.2009 */
-if(!ORYX.I18N.RESIZE) ORYX.I18N.RESIZE = {};
+if (!ORYX.I18N.RESIZE)
+	ORYX.I18N.RESIZE = {};
 ORYX.I18N.RESIZE.tipGrow = "Zeichenfläche vergrößern:";
 ORYX.I18N.RESIZE.tipShrink = "Zeichenfläche verkleinern:";
 ORYX.I18N.RESIZE.N = "Nach oben";
 ORYX.I18N.RESIZE.W = "Nach links";
-ORYX.I18N.RESIZE.S ="Nach unten";
-ORYX.I18N.RESIZE.E ="Nach rechts";
+ORYX.I18N.RESIZE.S = "Nach unten";
+ORYX.I18N.RESIZE.E = "Nach rechts";
 
 /** New Language Properties 24.11.2009 */
 ORYX.I18N.SyntaxChecker.BPMN2_TOO_MANY_INITIATING_MESSAGES = "Eine Choreographie-Aktivität darf nur eine initiierende Nachricht besitzen.";

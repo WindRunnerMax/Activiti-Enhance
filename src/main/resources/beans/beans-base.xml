@@ -17,4 +17,8 @@
             base-package="me.kafeitu.demo.activiti">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+    <context:component-scan
+            base-package="com.pressanykeytoac.controller">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 </beans>

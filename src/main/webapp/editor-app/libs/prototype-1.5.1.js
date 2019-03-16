@@ -1,10 +1,11 @@
-/*  Prototype JavaScript framework, version 1.5.1
- *  (c) 2005-2007 Sam Stephenson
- *
- *  Prototype is freely distributable under the terms of an MIT-style license.
- *  For details, see the Prototype web site: http://www.prototypejs.org/
- *
-/*--------------------------------------------------------------------------*/
+/*
+ * Prototype JavaScript framework, version 1.5.1 (c) 2005-2007 Sam Stephenson
+ * 
+ * Prototype is freely distributable under the terms of an MIT-style license.
+ * For details, see the Prototype web site: http://www.prototypejs.org/
+ * 
+ * /*--------------------------------------------------------------------------
+ */
 
 var Prototype = {
   Version: '1.5.1',
@@ -1071,10 +1072,11 @@ Ajax.Request.prototype = Object.extend(new Ajax.Base(), {
       headers['Content-type'] = this.options.contentType +
         (this.options.encoding ? '; charset=' + this.options.encoding : '');
 
-      /* Force "Connection: close" for older Mozilla browsers to work
-       * around a bug where XMLHttpRequest sends an incorrect
-       * Content-length header. See Mozilla Bugzilla #246651.
-       */
+      /*
+		 * Force "Connection: close" for older Mozilla browsers to work around a
+		 * bug where XMLHttpRequest sends an incorrect Content-length header.
+		 * See Mozilla Bugzilla #246651.
+		 */
       if (this.transport.overrideMimeType &&
           (navigator.userAgent.match(/Gecko\/(\d{4})/) || [0,2005])[1] < 2005)
             headers['Connection'] = 'close';
@@ -2044,9 +2046,11 @@ Element.ClassNames.prototype = {
 };
 
 Object.extend(Element.ClassNames.prototype, Enumerable);
-/* Portions of the Selector class are derived from Jack Slocum�۪s DomQuery,
- * part of YUI-Ext version 0.40, distributed under the terms of an MIT-style
- * license.  Please see http://www.yui-ext.com/ for more information. */
+/*
+ * Portions of the Selector class are derived from Jack Slocum�۪s DomQuery, part
+ * of YUI-Ext version 0.40, distributed under the terms of an MIT-style license.
+ * Please see http://www.yui-ext.com/ for more information.
+ */
 
 var Selector = Class.create();
 
@@ -3251,7 +3255,7 @@ var Position = {
 }
 
 // Safari returns margins on body which is incorrect if the child is absolutely
-// positioned.  For performance reasons, redefine Position.cumulativeOffset for
+// positioned. For performance reasons, redefine Position.cumulativeOffset for
 // KHTML/WebKit only.
 if (Prototype.Browser.WebKit) {
   Position.cumulativeOffset = function(element) {

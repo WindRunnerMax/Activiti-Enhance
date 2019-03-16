@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@page import="me.kafeitu.demo.activiti.util.PropertyFileUtil"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,10 +17,27 @@
     	.version {margin-left: 0.5em; margin-right: 0.5em;}
     	.trace {margin-right: 0.5em;}
         .center {
-            width: 1200px;
+            width:100%;
             margin-left:auto;
             margin-right:auto;
         }
+        #changeImg,#diagram-viewer{display: none;}
+		.ui-widget-header,.ui-widget-content
+		 {
+			background:#fff;
+			padding:3px;                				
+			border: 1px solid #c0c0c0;
+			-moz-border-radius: 10px; 
+			-webkit-border-radius: 10px; 
+			border-radius:1px;
+			color:#000;
+			font: 14px Tahoma, serif;
+		 }
+		 .ui-widget-header
+		 {
+			 border:none;
+			border-bottom: 1px solid #c0c0c0;
+		 }
     </style>
 
     <script src="${ctx }/js/common/jquery-1.8.3.js" type="text/javascript"></script>
@@ -34,11 +51,11 @@
 <body style="margin-top: 1em;">
 	<div class="center">
         <div style="text-align: center;">
-            <h3>欢迎访问Activiti Demo，专为优秀的BPMN2.0规范的轻量级工作流引擎Activiti服务</h3>
+            <h3>Welcome</h3>
         </div>
         <div id='portlet-container'></div>
     </div>
-    <!-- 隐藏 -->
+    <!-- 隐藏 
     <div class="forms template">
         <ul>
             <li>
@@ -151,6 +168,6 @@
                 <p>映射路径：/rest/*</p>
             </dd>
         </dl>
-    </div>
+    </div>-->
 </body>
 </html>

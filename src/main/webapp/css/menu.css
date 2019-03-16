@@ -70,7 +70,7 @@ ul#css3menu a {
     vertical-align: middle;
     text-align: left;
     text-decoration: none;
-    font: bold 12px Trebuchet MS, sans-serif;
+    font: 14px Tahoma, serif;
     color: #000000;
     text-shadow: #FFF 0 0 1px;
     cursor: pointer;
@@ -103,7 +103,7 @@ ul#css3menu li:hover > a {
     background-color: #0c97e2;
     border-color: #C0C0C0;
     border-style: solid;
-    font: bold 12px Trebuchet MS, sans-serif;
+    font: 14px Tahoma, serif;
     color: #000000;
     text-decoration: none;
     text-shadow: #FFF 0 0 1px;
@@ -116,7 +116,7 @@ ul#css3menu li a.active {
     background-color: #7BD729;
     border-color: #C0C0C0;
     border-style: solid;
-    font: bold 12px Trebuchet MS, sans-serif;
+    font: 14px Tahoma, serif;
     color: #000000;
     text-decoration: none;
     text-shadow: #FFF 0 0 1px;

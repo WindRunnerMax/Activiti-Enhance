@@ -48,17 +48,19 @@
             <bean class="me.kafeitu.demo.activiti.util.cache.DistributedCache" />
         </property>-->
 
-        <!-- 自动部署 -->
-        <property name="deploymentResources">
-            <list>
-                <value>classpath*:/deployments/*</value>
-            </list>
-        </property>
+<!--         自动部署 -->
+<!--         <property name="deploymentResources"> -->
+<!--             <list> -->
+<!--                 <value>classpath*:/deployments/*</value> -->
+<!--             </list> -->
+<!--         </property> -->
 
         <!-- 自定义表单字段类型 -->
         <property name="customFormTypes">
             <list>
                 <bean class="me.kafeitu.demo.activiti.activiti.form.UsersFormType"/>
+                <bean class="com.pressanykeytoac.form.voucherForm"/>
+                <bean class="com.pressanykeytoac.form.fileForm"/>
             </list>
         </property>
 

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<%@ include file="/common/global.jsp"%>
-	<title>KAD登录页 - 咖啡兔(闫洪磊)</title>
+	<title>Activiti</title>
 	<script>
 		var logon = ${not empty user};
 		if (logon) {
@@ -12,7 +12,6 @@
 		}
 	</script>
 	<%@ include file="/common/meta.jsp" %>
-	<%@ include file="/common/include-jquery-ui-theme.jsp" %>
     <%@ include file="/common/include-base-styles.jsp" %>
     <style type="text/css">
         .login-center {
@@ -28,124 +27,117 @@
             font-size: 14px;
             vertical-align: middle;
         }
+		.bin
+		{
+			margin-top: 5px;
+			border-bottom: 1px solid #c0c0c0;
+			width:292px;
+			margin-left: 50px;
+			height: 44px;
+		}
     </style>
 
-    <script src="${ctx }/js/common/jquery-1.8.3.js" type="text/javascript"></script>
-    <script src="${ctx }/js/common/plugins/jui/jquery-ui-${themeVersion }.min.js" type="text/javascript"></script>
+  <script src="/activiti/js/common/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="/activiti/js/common/plugins/jui/jquery-ui-1.9.2.min.js" type="text/javascript"></script>
+    <script src="/activiti/js/common/layui/layui.js" type="text/javascript"></script> 
+	 <link rel="stylesheet" href="/activiti/js/common/layui/css/layui.css">
+	 <link rel="stylesheet" href="/activiti/js/common/login/index.css">
+    <script src="/activiti/js/common/login/verify.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/activiti/js/common/login/verify.css">
     <script type="text/javascript">
-	$(function() {
-		$('button').button({
-			icons: {
-				primary: 'ui-icon-key'
-			}
-		});
+	function msg(message) {
+		layui.use('layer', function(){
+	  var layer = layui.layer;
+	  layer.msg(''+message+'', {
+		  area: '200px',
+	  offset: 'v',
+	  anim: 6
 	});
+	//layer.msg('TEST', {icon: 2});
+	});
+	}
+	 function validate()
+	 {
+	 	var logid=$("#loginid").val();
+	 	
+	 	if(flag==0) 
+	 	{
+	 		msg("请进行验证");
+	 		return false;
+	 	}
+	 	else if (logid=="") {
+	 		msg("用户名不能为空");
+	 		return false;
+	 	}
+	 	else return true;
+	 }
 	</script>
-</head>
-
 <body>
+
+
     <div id="loginContainer" class="login-center">
-        <c:if test="${not empty param.error}">
-            <h2 id="error" class="alert alert-error">用户名或密码错误！！！</h2>
+    <c:if test="${not empty param.error}">
+            <script type="text/javascript">
+            msg("用户名或密码错误");
+            </script>
         </c:if>
         <c:if test="${not empty param.timeout}">
-            <h2 id="error" class="alert alert-error">未登录或超时！！！</h2>
+            <script type="text/javascript">
+            msg("未登录");
+            </script>
         </c:if>
+		<form id="form" class="layui-form layui-form-pane">
+			<div id="main">
+			<div style="font-size:3em;margin-top:3px;margin-bottom:9px;">Activiti</div>
 
-		<div style="text-align: center;">
-            <h2>工作流引擎Activiti演示项目</h2>
-            <h3>
-                <a href="https://github.com/henryyan/kft-activiti-demo" target="_blank" style="text-decoration: none;">kft-activiti-demo（v${prop['system.version']}）</a>
-                <a href="http://www.kafeitu.me/about.html" target="_blank" style="text-decoration: none;">（By 咖啡兔）</a></h3>
+			<!--<div class="layui-form-item" style="background:#fff;">
+   			 <label class="layui-form-label" style="margin-top:6px;margin-left:50px;width:70px;">账号: </label>
+   		 <div class="layui-input-inline">
+     			 <input style="width:223px;" type="text" name="username" id="loginid" class="layui-input">
+    		 </div>
+			</div>
+			<div class="layui-form-item" style="margin-top:-8px;">
+    			<label class="layui-form-label" style="margin-top:6px;margin-left:50px;width:70px;">密码:  </label>
+    		<div class="layui-input-inline">
+     		 <input style="width:223px;" type="password" name="password" id="passid" class="layui-input">
+   		 </div>
+		</div>-->
+		<div class="bin" style="">
+		<div style="height:8px;"></div>
+		<label style='display:inline; font: 14px Arial;'>帐号：&nbsp;</label><input style="font: 15px Arial;border: none;width:223px;display:inline;height:20px;" type="text" name="username" id="loginid" >
 		</div>
-		<hr />
-		<form action="${ctx }/user/logon" method="get">
-			<table>
-				<tr>
-					<td width="200" style="text-align: right;">用户名：</td>
-					<td><input id="username" name="username" class="login-input" placeholder="用户名（见下左表）" /></td>
-				</tr>
-				<tr>
-					<td style="text-align: right;">密码：</td>
-					<td><input id="password" name="password" type="password" class="login-input" placeholder="默认为：000000" /></td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>
-						<button type="submit">登录Demo</button>
-					</td>
-				</tr>
-			</table>
+		<div class="bin" style="">
+		<div style="height:12px;"></div>
+		<label style='display:inline; font: 14px Arial;'>密码：&nbsp;</label><input style="font: 15px Arial;border: none;width:223px;display:inline;" type="password" name="password" id="passid" >
+		</div>
+		
+		<div id='limit'><div style=' font: 12px Microsoft YaHei;' id="mpanel" ></div></div>
+			<button id="login"  type="submit" onclick='return validate()' style="margin-left:50px;margin-top:10px;margin-bottom:-10px;">登录</button>
+			</div>
 		</form>
-		<hr />
-		<div>
-            <div style="float:left; width: 48%;margin-right: 2%;">
-                <table border="1">
-                    <caption>用户列表(密码：000000)</caption>
-                    <tr>
-                        <th width="50" style="text-align: center">用户名</th>
-                        <th style="text-align: center">角色</th>
-                    </tr>
-                    <tr>
-                        <td>admin</td>
-                        <td>管理员、用户</td>
-                    </tr>
-                    <tr>
-                        <td>kafeitu</td>
-                        <td>用户</td>
-                    </tr>
-                    <tr>
-                        <td>hruser</td>
-                        <td>人事、用户</td>
-                    </tr>
-                    <tr>
-                        <td>leaderuser</td>
-                        <td>部门经理、用户</td>
-                    </tr>
-                </table>
-            </div>
-            <div style="float:right; width: 50%;">
-                <dl>
-                    <dt>《Activiti实战》：</dt>
-                    <dd><a target="_blank" href="http://www.kafeitu.me/activiti-in-action.html">http://www.kafeitu.me/activiti-in-action.html</a></dd>
-
-                    <dt>Wiki：</dt>
-                    <dd><a target="_blank" href="https://github.com/henryyan/kft-activiti-demo/wiki">https://github.com/henryyan/kft-activiti-demo/wiki</a></dd>
-
-                    <dt>Demo源码：</dt>
-                    <dd><a target="_blank" href="https://github.com/henryyan/kft-activiti-demo">https://github.com/henryyan/kft-activiti-demo</a></dd>
-
-                    <dt>Activiti资料：</dt>
-                    <dd><a target="_blank" href="http://www.kafeitu.me/categories.html#activiti-ref">http://www.kafeitu.me/categories.html#activiti-ref</a></dd>
-
-                </dl>
-            </div>
-		</div>
-        <hr />
-        <div>
-            <div style="float:left; width: 50%;">
-                <h5>组件版本信息</h5>
-                <ul>
-                    <li>Activiti版本：${prop['activiti.version']}</li>
-                    <li>Spring版本：${prop['spring.version']}</li>
-                    <li>Database：${prop['db.type']}</li>
-                    <li>使用<a href="http://maven.apache.org" target="_blank">Maven</a>管理依赖</li>
-                </ul>
-            </div>
-            <div style="float:right; width: 50%;">
-                <h5>QQ交流群</h5>
-                <ul>
-                    <li>Activiti中文群1(<span style="color:green;font-weight: bold">欢迎</span>)：236540304</li>
-                    <li>Activiti中文群2(<span style="color:red">已满</span>)：23539326</li>
-                    <li>Activiti中文群3(<span style="color:red">已满</span>)：139983080</li>
-                    <li>Activiti中文群4(<span style="color:red">已满</span>)：327913744</li>
-                </ul>
-            </div>
-        </div>
-        <hr />
-        <div>
-            <a href="http://www.kafeitu.me/activiti-in-action.html" target="_blank"><img src="${ctx}/images/activiti-in-action.jpg" alt=""></a>
-        </div>
-    </div>
-</body>
+	
+<script type="text/javascript">
+layui.use('form', function(){
+  var form = layui.form; 
+  form.render();
+});   
+</script>
+<script type="text/javascript">
+$('#mpanel').slideVerify({
+		type : 1,		
+		vOffset : 5,	
+		barSize : {
+			width : '98%',
+			height : '35px',
+		},
+		ready : function() {
+		},
+		success : function() {
+			$("#form").attr('action','/activiti/user/logon');
+			$("#form").attr('method','get');
+			flag=1;
+		},		
+	});
+</script>
+</div></body></html>
 </html>

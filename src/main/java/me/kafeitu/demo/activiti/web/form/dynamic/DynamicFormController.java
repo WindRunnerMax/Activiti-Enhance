@@ -191,7 +191,11 @@ public class DynamicFormController {
                 formProperties.put(key.split("_")[1], entry.getValue()[0]);
             }
         }
-
+        
+//        String taskOwner=taskService.createTaskQuery().taskId(taskId).singleResult().getOwner();
+//        if(taskOwner!=null){
+//        	taskService.resolveTask(taskId,formProperties);
+//        }
         logger.debug("start form parameters: {}", formProperties);
 
         User user = UserUtil.getUserFromSession(request.getSession());
@@ -206,6 +210,7 @@ public class DynamicFormController {
         } finally {
             identityService.setAuthenticatedUserId(null);
         }
+        
 
         redirectAttributes.addFlashAttribute("message", "任务完成：taskId=" + taskId);
         return "redirect:/form/dynamic/task/list?processType=" + processType;
@@ -389,5 +394,7 @@ public class DynamicFormController {
         mav.addObject("page", page);
         return mav;
     }
+    
+    
 
 }

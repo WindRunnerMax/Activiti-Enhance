@@ -12,7 +12,9 @@
     <script src="${ctx }/js/common/jquery-1.8.3.js" type="text/javascript"></script>
 </head>
 <body>
-<div class='page-title ui-corner-all'>引擎数据库</div>
+
+  
+<div class='page-title ui-corner-all'>数据库</div>
     <div class="row">
         <div class="span4" style="border-right: 1px solid #000000">
             <div class='page-title ui-corner-all'>表名</div>

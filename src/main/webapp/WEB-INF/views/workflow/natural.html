@@ -1,0 +1,215 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>ADD</title>
+<script type="text/javascript" src="/activiti/js/common/jquery-1.8.3.js"></script>
+<script src="/activiti/js/common/layui/layui.js" type="text/javascript"></script> 
+<link rel="stylesheet" href="/activiti/js/common/layui/css/layui.css">
+</head>
+<script type="text/javascript">
+	function cleanUp(){
+			$('#preview').val("");
+	}
+	function nullMatch()
+	{
+		var text = $("#tempPreview").val();
+		if(text=="") 
+			 $("#add").attr("class","layui-btn layui-btn-disabled");
+		else 
+			$("#add").attr("class","layui-btn layui-btn-normal");
+	}
+	function check(text)
+	{
+		var n=text.length;
+		if(text[n-1]!="。") return "-1";
+		else return "1";
+	}
+	function singleAdd()
+	{
+		var text = $("#tempPreview").val();
+		if(text=="")  return ;
+		var checkre=check(text);
+		if(checkre=="-1")
+		{
+			layui.use('layer', function(){
+			  var layer = layui.layer;
+			  layer.msg("必须以。结尾", {icon: 5});
+			});
+			return ;
+		}
+		$("#preview").append($("#tempPreview").val()+"\n");
+		$("#tempPreview").val("");
+		$("#add").attr("class","layui-btn layui-btn-disabled");
+	}
+	function submitText(name)
+	{
+		var text = $("#preview").val();
+		if(text=="") {alert("语句不能为空！");return;}
+		var layerMsg = layer.msg('处理中，请稍等', {icon: 16 ,shade: 0.2,time:0});
+		$.ajax({												
+			type:"post",
+			url:"/activiti/pressanykeytoac/natural/solve",
+// 			url:"#",
+			data: {text:text,fileName:name},		
+			dataType:"text",			
+			success:function(data)
+			{
+				if(data == "1") {
+					layer.close(layerMsg);
+					location.href="/activiti/workflow/model/list";
+				}
+			},
+			error:function()
+			{
+				layer.close(layerMsg);
+				layui.use('layer', function(){
+				  var layer = layui.layer;
+				  layer.msg("网络故障，请稍后再试！", {icon: 5});
+				});
+			}
+		});
+	}
+	function inputName()
+	{
+		layui.use('layer', function(){
+		  var layer = layui.layer;
+		  layer.prompt({title: '请输入文件名'},function(val, index){
+			  submitText(val);
+			  layer.close(index);
+			});
+		});  
+	}
+</script>
+<style type="text/css">
+	.clear{ clear:both;height: 10px;}
+</style>
+<body>
+<div style=" background-color: #F2F2F2;width: 100%;height: 100%;">
+	<div style="padding: 10px;">
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 0px;">
+  			<legend>快速建模</legend>
+		</fieldset>
+	  <div >
+	    <div style="width: calc(50% - 15px);float: left;padding: 5px;">
+	      <div class="layui-card">
+	        <div class="layui-card-header">输入区</div>
+	        <div class="layui-card-body">
+	          
+	          <!-- BODY -->
+				<div class="layui-collapse" >
+				  <div class="layui-colla-item">
+				    <h2 class="layui-colla-title">建模</h2>
+				    <div class="layui-colla-content layui-show">
+				     <form class="layui-form" action="">
+				    	<!-- BODY -->
+				    	<div  style="width: 280px;">
+    						<div style="padding:8px;float: left;width:60px;">选择类型</div>
+    						<div style="float: right;width: 200px;">
+						    	<select id="su" lay-filter="type" >
+						        	<option value="0"  selected="">选择类型</option>
+						       	 	<option value="1">顺序结构</option>
+						       	 	<option value="2">排他关系</option>
+						        	<option value="3">并发关系</option>
+						        	<option value="4">条件关系</option>
+						        	<option value="5">结束流程</option>
+						      	</select>
+					      </div>
+					  </div>
+					  <div class="clear"></div>
+					  	<!-- <hr class="layui-bg-gray"> -->
+					  	<!-- <hr class="layui-bg-gray"> -->
+					  	<div style="margin-top: 10px;">
+						    <div style="padding:8px;float: left;width:60px;">输入语句</div>
+						    <div  style="float: right;width: calc(100% - 80px);" >
+						      <input  type="text" name="title" id="tempPreview" oninput="nullMatch()" autocomplete="off" placeholder="输入语句" class="layui-input">
+						    </div>
+						 </div>
+						 <div class="clear"></div>
+					  	<center>
+							<!-- <div class="layui-btn layui-btn-primary" >预览</div> -->
+							<div class="layui-btn layui-btn-disabled" id="add" onclick="singleAdd()">添加</div>
+						</center>
+
+
+				      	</form>
+				    </div>
+				  </div>
+				  <div class="layui-colla-item">
+				    <h2 class="layui-colla-title">说明书</h2>
+				    <div class="layui-colla-content layui-show" >
+				      <p>1、每一句必须以句号结尾，一个整句若需要划分成子句用逗号分隔。 <br>2、顺序结构的句子必须是严格的主谓宾结构，例如：请假人员提出请假申请。 <br>3、排他关系的句子必须按如下格式来描述：某某人或某某人干什么事情。<br> 4、并行关系的句子必须按如下格式来描述：某某人和某某人做什么事情，或者是，某某人干是什么事情，同时干什么事情。 <br>5、最后一定要以一句”流程结束“，以表示流程描述完毕。 例如：学生提出请假申请。 班长进行请假审批，同时提交给辅导员。 辅导员或副院长进行请假审批。 流程结束。 </p>
+				    </div>
+				  </div>
+				</div>
+
+	        </div>
+	      </div>
+	    </div>
+
+	    <div style="width: calc(50% - 15px);float: right;padding: 5px;">
+	      <div class="layui-card">
+	        <div class="layui-card-header">提交区</div>
+	        <div class="layui-card-body">
+	          
+
+	          <!-- BODY -->
+	          <fieldset class="layui-elem-field">
+			  <legend>Tips</legend>
+			  <div class="layui-field-box">
+			    <div id="tips">此处会出现您选择的类型的提示</div>
+			  </div>
+			</fieldset>
+	          <hr class="layui-bg-gray">
+	          <form class="layui-form" action="">
+	          	<div class="">
+				    <div style="width: calc(100% - 18px);border-top: 1px solid #E6E6E6;border-left: 1px solid #E6E6E6;border-right: 1px solid #E6E6E6;padding: 8px;border-radius:2px;;background: #FBFBFB;">&nbsp; 预览</div>
+				    <div>
+				      <textarea placeholder="可在此处直接输入您的语句" id="preview" class="layui-textarea"></textarea>
+				    </div>
+				</div>
+			</form>
+			<div class="clear"></div>
+			<center>
+				<div class="layui-btn layui-btn-normal" onclick="inputName()">提交</div>
+				<div class="layui-btn layui-btn-primary"  onclick="cleanUp()">清空</div>
+			</center>
+				
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div> 
+</div>
+</body>
+<script>
+var typeSelect="0";
+layui.use(['form','element'], function(){
+  var form = layui.form;
+  var element = layui.element;
+
+  form.on('select(type)', function(data){
+  	typeSelect=data.value;
+    switch (data.value) {
+			case "1":
+				$('#tips').html("请假人员提出请假申请。");
+				break;
+			case "2":
+				$('#tips').html("① 班长或辅导员进行请假审批。 <br>② 如果请假时间小于5天，班长进行请假审批。如果请假时间大于五天，辅导员进行请假审批。");
+				break;
+			case "3":
+				$('#tips').html("① 动作并发 ：辅导员进行请假审批并通知学生。 <br>② 主语并发：辅导员进行请假审批，副院长同时进行请假审批。");
+				break;
+			case "4":
+				$('#tips').html("班长进行请假审批，不通过就返回1。");
+				break;
+			case "5":
+				$('#tips').html("必须以 流程结束。 表示流程结束");
+				$("#tempPreview").val("流程结束。");
+				$("#add").attr("class","layui-btn layui-btn-normal");
+				break;
+		}
+	});
+
+});
+</script>
+</html>

@@ -14,7 +14,18 @@
 	<%@ include file="/common/include-jquery-ui-theme.jsp" %>
 	<%@ include file="/common/include-custom-styles.jsp" %>
 	<title>流程列表</title>
-
+<style type="text/css">
+#deploy
+{
+	background:#fff;
+		padding:3px;                				
+		border: 1px solid #c0c0c0;
+		-moz-border-radius: 10px; 
+		-webkit-border-radius: 10px; 
+		border-radius:1px;
+		font: 14px Tahoma, serif;
+}
+</style>
 	<script src="${ctx }/js/common/jquery-1.8.3.js" type="text/javascript"></script>
     <script src="${ctx }/js/common/plugins/jui/jquery-ui-${themeVersion }.min.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -35,19 +46,30 @@
     </script>
 </head>
 <body>
+	<%@page import="com.pressanykeytoac.searchActivitiError.*"%>
+	<%
+	if(request.getParameter("id")!=null){ 
+		int ID = Integer.parseInt(request.getParameter("id"));
+	%>
+	<script type="text/javascript">
+	var tips="<%=SearchError.searchError(ID)%>";
+	if(tips=="")  layermsgsuccess("未发现问题");
+	else layermsgwarning(tips);
+	</script>
+	<% } %>
+<fieldset  style='margin-top:10px;margin-bottom:6px;' class="layui-elem-field layui-field-title">
+  <legend style="font:14px Tahoma, serif;" >部署管理</legend>
+</fieldset>
 	<c:if test="${not empty message}">
-	<div class="ui-widget">
-			<div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"> 
-				<p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-				<strong>提示：</strong>${message}</p>
-			</div>
-		</div>
+	<script type="text/javascript">
+	layermsgsuccess("${message}");
+	</script>
 	</c:if>
-	<div style="text-align: right;padding: 2px 1em 2px">
-		<div id="message" class="info" style="display:inline;"><b>提示：</b>点击xml或者png链接可以查看具体内容！</div>
-		<a id='deploy' href='#'>部署流程</a>
+	<div style="text-align: right;padding: 2px 1em 2px;margin-bottom:15px;" >
+		<a style="position:absolute;text-align: right;top:35px;left:0px;" id='deploy' href='#'>部署流程</a>
 		<a id='redeploy' href='${ctx }/workflow/redeploy/all' style="display:none">重新部署流程</a>
 	</div>
+	<br>
 	<fieldset id="deployFieldset" style="display: none">
 		<legend>部署新流程</legend>
 		<div><b>支持文件格式：</b>zip、bar、bpmn、bpmn20.xml</div>
@@ -56,35 +78,33 @@
 			<input type="submit" value="Submit" />
 		</form>
 	</fieldset>
-	<table width="100%" class="need-border">
-		<thead>
+	<table width="100%" class="layui-table" lay-size="sm">
+		<thead >
 			<tr>
 				<th>ProcessDefinitionId</th>
-				<th>DeploymentId</th>
 				<th>名称</th>
+				<th>Version</th>
 				<th>KEY</th>
-				<th>版本号</th>
-				<th>XML</th>
-				<th>图片</th>
-				<th>部署时间</th>
-				<th>是否挂起</th>
-				<th>操作</th>
+				<th style='text-align:center;'>XML</th>
+				<th style='text-align:center;'>图片</th>
+				<th style='text-align:center;'>部署时间</th>
+				<th style='text-align:center;'>挂起</th>
+				<th style='text-align:center;'>操作</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody >
 			<c:forEach items="${page.result }" var="object">
 				<c:set var="process" value="${object[0] }" />
 				<c:set var="deployment" value="${object[1] }" />
-				<tr>
+				<tr >
 					<td>${process.id }</td>
-					<td>${process.deploymentId }</td>
 					<td>${process.name }</td>
+					<td>${process.version}</td>
 					<td>${process.key }</td>
-					<td>${process.version }</td>
-					<td><a target="_blank" href='${ctx }/workflow/resource/read?processDefinitionId=${process.id}&resourceType=xml'>${process.resourceName }</a></td>
-					<td><a target="_blank" href='${ctx }/workflow/resource/read?processDefinitionId=${process.id}&resourceType=image'>${process.diagramResourceName }</a></td>
+					<td style='text-align:center;'><a target="_blank" href='${ctx }/workflow/resource/read?processDefinitionId=${process.id}&resourceType=xml'>查看XML</a></td>
+					<td style='text-align:center;'><a target="_blank" href='${ctx }/workflow/resource/read?processDefinitionId=${process.id}&resourceType=image'>查看流程</a></td>
 					<td>${deployment.deploymentTime }</td>
-					<td>${process.suspended} |
+					<td style='text-align:center;'>${process.suspended} |
 						<c:if test="${process.suspended }">
 							<a href="processdefinition/update/active/${process.id}">激活</a>
 						</c:if>
@@ -92,10 +112,11 @@
 							<a href="processdefinition/update/suspend/${process.id}">挂起</a>
 						</c:if>
 					</td>
-					<td>
-                        <a href='${ctx }/workflow/process/delete?deploymentId=${process.deploymentId}'>删除</a>
-                        <a href='${ctx }/workflow/process/convert-to-model/${process.id}'>转换为Model</a>
-                    </td>
+					<td style='text-align:center;'>
+                       	<a href='${ctx }/workflow/process/delete?deploymentId=${process.deploymentId}'>删除</a>
+                        <a href='${ctx }/workflow/process/convert-to-model/${process.id}'>转换</a>
+                        <a href='${ctx }/workflow/process-list?id=${process.deploymentId}'>检查</a>
+               </td>
 				</tr>
 			</c:forEach>
 		</tbody>

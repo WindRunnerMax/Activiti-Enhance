@@ -14,8 +14,11 @@
 </head>
 
 <body>
-	<table>
-		<tr>
+<fieldset  style='margin-top:10px;margin-bottom:10px;' class="layui-elem-field layui-field-title">
+  <legend style="font:14px Tahoma, serif;" >已结束流程</legend>
+</fieldset>
+	<table  class="layui-table" lay-size="sm">
+		<tr style='background:#f3f3f3;'>
 			<th>流程ID</th>
 			<th>流程定义ID</th>
 			<th>流程启动时间</th>
@@ -36,6 +39,5 @@
 	<tags:pagination page="${page}" paginationSize="${page.pageSize}"/>
 	<!-- 办理任务对话框 -->
 	<div id="handleTemplate" class="template"></div>
-
 </body>
 </html>

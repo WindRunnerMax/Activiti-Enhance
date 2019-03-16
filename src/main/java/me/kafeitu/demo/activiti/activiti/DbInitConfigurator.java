@@ -13,8 +13,8 @@ public class DbInitConfigurator implements ProcessEngineConfigurator {
 
     @Override
     public void beforeInit(ProcessEngineConfigurationImpl processEngineConfiguration) {
+    	DbSqlSessionFactory.databaseSpecificLimitAfterStatements.put("mysql", "LIMIT #{firstResult},#{maxResults}");
         DbSqlSessionFactory.databaseSpecificLimitAfterStatements.put("h2", "LIMIT #{firstResult},#{maxResults}");
-        DbSqlSessionFactory.databaseSpecificLimitAfterStatements.put("mysql", "LIMIT #{firstResult},#{maxResults}");
     }
 
     @Override

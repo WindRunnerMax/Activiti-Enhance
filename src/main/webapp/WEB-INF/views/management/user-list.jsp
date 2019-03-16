@@ -35,12 +35,23 @@
                 $('#setGroupsModal').modal();
             });
         });
+        function sub()
+        {
+            if($('#userId').val()=="" || $('#lastName').val()==""  || $('#email').val()=="" || $('#password').val()=="")
+            {
+                alert("请填写完整信息");
+                return false;
+            }
+            else return true;
+        }
     </script>
 </head>
 <body>
 <ul class="nav nav-pills">
     <li class="active"><a href="${ctx}/management/identity/user/list"><i class="icon-user"></i>用户管理</a></li>
     <li><a href="${ctx}/management/identity/group/list"><i class="icon-list"></i>组管理</a></li>
+	<li><a href="${ctx}/pressanykeytoac/tree/jump/user"><i class="layui-icon" style="color: #000;">&#xe62e;</i>用户树管理</a></li>
+    <li><a href="${ctx}/pressanykeytoac/tree/jump/group"><i class="layui-icon" style="color: #000;">&#xe613;</i>组角色管理</a></li>
 </ul>
 <hr>
 <c:if test="${not empty message}">
@@ -62,7 +73,7 @@
     </script>
 </c:if>
 <div class="row">
-    <div class="span8">
+    <div class="span6">
         <fieldset>
             <legend><small>用户列表</small></legend>
             <table width="100%" class="table table-bordered table-hover table-condensed">
@@ -72,7 +83,7 @@
                     <th>姓名</th>
                     <th>Email</th>
                     <th>所属组</th>
-                    <th width="130">操作</th>
+                    <th width="90" style="text-align: center;">操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -102,8 +113,8 @@
                             <a href="#" class="set-group" data-groupids="${groupIds}" data-userid="${user.id}" data-toggle="modal">共${fn:length(groupOfUserMap[user.id])}个组</a><br>
                         </td>
                         <td>
-                            <a class="btn btn-danger btn-small" href="${ctx}/management/identity/user/delete/${user.id}"><i class="icon-remove"></i>删除</a>
-                            <a class="btn btn-info btn-small edit-user" data-id="${user.id}" href="#"><i class="icon-pencil"></i>编辑</a>
+                            <a style="float: left;" class="layui-btn layui-btn-normal layui-btn-sm edit-user" data-id="${user.id}"><i class="layui-icon">&#xe642;</i></a>
+			    <a style="float: right;" class="layui-btn layui-btn-danger layui-btn-sm" href="${ctx}/management/identity/user/delete/${user.id}"><i class="layui-icon">&#xe640;</i></a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -114,7 +125,7 @@
     </div>
 
     <!-- 新增、编辑用户的Model -->
-    <div class="span4">
+    <div class="span6">
         <form action="${ctx }/management/identity/user/save" class="form-horizontal" method="post">
             <fieldset>
                 <legend><small>新增/编辑用户</small></legend>
@@ -150,8 +161,8 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <button type="reset" class="btn"><i class="icon-remove"></i>重置</button>
-                    <button type="submit" class="btn btn-primary"><i class="icon-ok-sign"></i>保存</button>
+                    <button type="submit" onclick="return sub()" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon">&#xe605;</i>保存</button>
+                    <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">&#xe9aa;</i>重置</button>
                 </div>
             </fieldset>
         </form>
@@ -172,8 +183,8 @@
                         </c:forEach>
                     </div>
                     <div class="span2">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-                        <button type="submit" class="btn btn-primary">确定添加</button>
+                        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm">确定添加</button>
+                        <button class="layui-btn layui-btn-primary layui-btn-sm" data-dismiss="modal" aria-hidden="true">关闭</button>
                     </div>
                 </div>
             </form>

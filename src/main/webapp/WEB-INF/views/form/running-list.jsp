@@ -26,10 +26,13 @@
 		// 跟踪
 	    $('.trace').click(graphTrace);
 	});
-	</script>
+	
 </head>
 
 <body>
+<fieldset  style='margin-top:10px;margin-bottom:10px;' class="layui-elem-field layui-field-title">
+  <legend style="font:14px Tahoma, serif;" >运行中流程</legend>
+</fieldset>
 	<%
 	RepositoryService repositoryService = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext()).getBean(org.activiti.engine.RepositoryService.class);
 	ProcessDefinitionCache.setRepositoryService(repositoryService);

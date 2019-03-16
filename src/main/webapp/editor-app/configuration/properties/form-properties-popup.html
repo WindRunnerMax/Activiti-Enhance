@@ -39,9 +39,12 @@
             			   		<select id="typeField" class="form-control" ng-model="selectedProperties[0].type" ng-change="propertyTypeChanged()">
                                     <option>string</option>
                                     <option>long</option>
-                                    <option>boolean</option>
+                                    <!-- <option>boolean</option> -->
                                     <option>date</option>
                                     <option>enum</option>
+                                    <option>voucher</option>
+                                    <option>file</option>
+									<option>users</option>
                                 </select>
             				</div>
                            	<div class="form-group" ng-show="selectedProperties[0].datePattern">

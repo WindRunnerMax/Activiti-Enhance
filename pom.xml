@@ -2,8 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>me.kafeitu.demo</groupId>
-    <artifactId>kft-activiti-demo</artifactId>
+    <groupId>activiti</groupId>
     <version>1.15.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Activiti demo</name>
@@ -35,7 +34,8 @@
         <slf4j.version>1.7.5</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
         <jetty.version>8.1.15.v20140411</jetty.version>
-        <h2.version>1.4.180</h2.version>
+<!--         <h2.version>1.4.180</h2.version> -->
+        <mysql.version>5.1.24</mysql.version>
         <junit.version>4.10</junit.version>
         <mockito.version>1.9.0</mockito.version>
         <powermock.version>1.4.12</powermock.version>
@@ -58,13 +58,36 @@
 
     <!-- 依赖项定义 -->
     <dependencies>
-
+		
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20150729</version>
+		</dependency>
+		
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.5.4</version>
         </dependency>
-
+		
+		<dependency>
+		    <groupId>edu.stanford.nlp</groupId>
+		    <artifactId>stanford-parser</artifactId>
+		    <version>3.8.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>edu.stanford.nlp</groupId>
+		    <artifactId>stanford-parser</artifactId>
+		    <version>3.8.0</version>
+		    <classifier>models</classifier>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.jdom</groupId>
+		    <artifactId>jdom2</artifactId>
+		    <version>2.0.5</version>
+		</dependency>
         <!-- activiti -->
         <dependency>
             <groupId>org.activiti</groupId>
@@ -133,6 +156,7 @@
             <artifactId>cxf-api</artifactId>
             <version>2.7.6</version>
         </dependency>
+        
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
@@ -417,10 +441,16 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
+<!--         <dependency> -->
+<!--             <groupId>com.h2database</groupId> -->
+<!--             <artifactId>h2</artifactId> -->
+<!--             <version>${h2.version}</version> -->
+<!--         </dependency> -->
+        
+         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
 
         <dependency>
@@ -523,7 +553,7 @@
             </plugin>
         </plugins>
 
-        <finalName>kft-activiti-demo</finalName>
+        <finalName>activiti</finalName>
     </build>
 
     <profiles>
@@ -545,9 +575,9 @@
                 <jdbc.password></jdbc.password>
                 <hibernate.dialect>org.hibernate.dialect.H2Dialect</hibernate.dialect>
             </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+<!--             <activation> -->
+<!--                 <activeByDefault>true</activeByDefault> -->
+<!--             </activation> -->
             <build>
                 <resources>
                     <resource>
@@ -571,11 +601,14 @@
 
                 <!-- driver configs -->
                 <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-                <jdbc.url><![CDATA[jdbc:mysql://localhost:3306/kad?useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
-                <jdbc.username>root</jdbc.username>
-                <jdbc.password>root</jdbc.password>
+                <jdbc.url><![CDATA[jdbc:mysql://127.0.0.1:3306/activiti?useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
+                <jdbc.username>admin</jdbc.username>
+                <jdbc.password>147258369</jdbc.password>
                 <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <resources>
                     <resource>
@@ -586,4 +619,5 @@
             </build>
         </profile>
     </profiles>
+    <artifactId>activiti</artifactId>
 </project>
